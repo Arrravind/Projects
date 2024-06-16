@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('pro1.avif');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    margin-left: 50px;
+    margin-top: 40px;
+    font-size: 50px;
+}
+.hint {
+    display: flex;
+}
+#about {
+    width: 25px;
+    height: 25px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+#about:hover {
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 50vh; 
+}
+.box {
+    margin-top: 50px;
+    width: 105vh;
+    padding: 20px;
+    text-align: left;
+    font-size: 27px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+.box p {
+    padding: 10px 0;
+}
+#letter {
+    font-size: 20px;
+    border-radius: 10px;
+    border-color: bisque;
+    height: 36px;
+    width: 40px;
+    text-align: center;
+}
+#guess {
+    width: 100px;
+    height: 37px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    transition-duration: 0.4s;
+    margin-left: 10px;
+}
+#guess:hover {
+    background-color: #45a049;
+}
+#b1, #b2 {
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition-duration: 0.4s;
+    margin: 5px 0;
+}
+#b1 {
+    width: 150px;
+    height: 37px;
+    display: none;
+    background-color: #4CAF50;
+    margin-right: 10px;
+}
+#b1:hover {
+    background-color: #45a049;
+}
+#b2 {
+    background-color: #f44336;
+    width: 100px;
+    height: 37px;   
+}
+#b2:hover {
+    background-color: #e53935;
+}
+#result {
+    transition: opacity 0.5s, transform 0.5s;
+    text-align: center;
+}
+#result.fade {
+    opacity: 0;
+    transform: translate(0px, 10px);
+}
+.mid{
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

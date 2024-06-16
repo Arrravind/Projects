@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Letter</title>
+    <link rel="stylesheet" href="pro1_style.css">
+</head>
+<body>
+    <div class="hint">
+        <div><h1>Guess the Letter</h1></div>
+        <div id="about"> <img src="question_mark.png" id="about"> </div>
+    </div>
+    <div class="container">
+        <div class="box">
+            <p>Letters:</p>
+            <p>a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+            <div class="mid">
+                <input id="letter" type="text" maxlength="1" required>
+                <button id="guess" onclick="guess()">Guess</button>
+            </div>
+            <p id="result"></p>
+            <div class="bottom">
+                <a href="game.html"><button id="b1">Play Again</button></a>  
+                <a href="index.html"><button id="b2">Exit</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="pro1_script.js"></script>
+</body>
+</html>
