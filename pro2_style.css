@@ -80,7 +80,7 @@ select {
     outline: none;
     margin: none;
     appearance: none;
-    background-image: url("Media/dropdown.png");
+    background-image: url("dropdown.png");
     background-repeat: no-repeat;
     background-color: rgb(115, 54, 228);
     background-position-x: calc(100% - 20px);
