@@ -12,20 +12,22 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, rgba(149, 0, 255, 0.828), rgb(30, 199, 208));
+    padding: 20px;
 }
 .main h1 {
-    font-size: 45px;
+    font-size: 8vw;
     font-weight: 500;
     color: #fff;
-    margin-bottom: 50px;
-    margin-top: -50px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 .main h1 span {
-    color: #FFFF80
+    color: #FFFF80;
 }
 textarea {
-    width: 550px;
-    height: 250px;
+    width: 90%;
+    max-width: 550px;
+    height: 150px;
     outline: 0;
     border: 0;
     border-radius: 35px;
@@ -39,39 +41,42 @@ textarea {
     transition: 0.2s;
 }
 textarea:hover {
-    background-color: rgb(115, 54, 228, 0.8);
+    background-color: rgba(115, 54, 228, 0.8);
 }
 textarea::placeholder {
     color: #ddd;
 }
 .row {
-    width: 550px;
+    width: 90%;
+    max-width: 550px;
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 button {
     border: 0;
     outline: 0;
     border-radius: 35px;
-    font-size: 16px;
-    padding: 10px 30px;
+    font-size: 4vw;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     background-color: rgb(115, 54, 228);
     color: #fff;
     cursor: pointer;
     transition: 0.2s;
+    flex: 1 1 auto;
 }
 button:hover {
-    background-color: rgb(115, 54, 228, 0.8);
+    background-color: rgba(115, 54, 228, 0.8);
 }
 button img {
     width: 16px;
     margin-right: 10px;
 }
 select {
-    flex: 1;
+    flex: 1 1 auto;
     height: 50px;
     color: #fff;
     border-radius: 35px;
@@ -89,5 +94,18 @@ select {
     transition: 0.2s;
 }
 select:hover {
-    background-color: rgb(115, 54, 228, 0.8);
+    background-color: rgba(115, 54, 228, 0.8);
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+    .main h1 {
+        font-size: 45px;
+    }
+    textarea {
+        height: 250px;
+    }
+    button {
+        font-size: 16px;
+    }
 }
