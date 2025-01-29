@@ -8,20 +8,13 @@ function calculateFLAMES() {
         return;
     }
 
-    const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings'];
+    const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings', 'Love and Marriage'];
 
     const setOne = ['aravind', 'aravindm'];
     const setTwo = ['hemapriya', 'hemapriyarc', 'hemapriyarc'];
 
     const normalizedName1 = name1.replace(/\s/g, '');
     const normalizedName2 = name2.replace(/\s/g, '');
-
-    if ((setOne.includes(normalizedName1) && setTwo.includes(normalizedName2)) ||
-        (setOne.includes(normalizedName2) && setTwo.includes(normalizedName1))) {
-        document.getElementById("result").textContent = "The relationship is: Love and Marriage";
-        document.getElementById("result").style.opacity = 1;
-        return;
-    }
 
     let combinedString = name1 + name2;
 
