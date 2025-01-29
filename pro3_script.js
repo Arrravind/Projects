@@ -1,32 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAMES Game</title>
-    <link rel="stylesheet" href="pro3_style.css">
-</head>
-<body>
-    <div class="background-overlay"></div>
-    <div id="particles-js"></div>
-    <div class="container">
-        <h1>FLAMES Game</h1>
-        <div class="form-group">
-            <input type="text" id="name1" placeholder="Person 1's Name">
-        </div>
-        <div class="form-group">
-            <input type="text" id="name2" placeholder="Person 2's Name">
-        </div>
-        <button id="calculate-btn" onclick="calculateFLAMES()">Calculate</button>
-        <button id="reset-btn" onclick="resetFields()" style="display: none;">Check Again</button>
-        <div id="result"></div>
-    </div>
-    <script src="pro3_script.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('particles.js loaded - callback');
-        });
-    </script>
-</body>
-</html>
+function calculateFLAMES() {
+    const name1 = document.getElementById("name1").value.toLowerCase().replace(/\s/g, '');
+    const name2 = document.getElementById("name2").value.toLowerCase().replace(/\s/g, '');
+
+    if (!name1 || !name2) {
+        document.getElementById("result").textContent = "Please enter both names.";
+        document.getElementById("result").style.opacity = 1;
+        return;
+    }
+
+    const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings'];
+
+    const setOne = ['aravind', 'aravindm'];
+    const setTwo = ['hemapriya', 'hemapriyarc', 'hemapriyarc'];
+
+    // Normalize input names (remove spaces and convert to lowercase)
+    const normalizedName1 = name1.replace(/\s/g, '');
+    const normalizedName2 = name2.replace(/\s/g, '');
+
+    // Check if names match the predefined sets
+    if ((setOne.includes(normalizedName1) && setTwo.includes(normalizedName2)) ||
+        (setOne.includes(normalizedName2) && setTwo.includes(normalizedName1))) {
+        document.getElementById("result").textContent = "The relationship is: Love and Marriage";
+        document.getElementById("result").style.opacity = 1;
+        return;
+    }
+
+    let combinedString = name1 + name2;
+
+    for (let i = 0; i < name1.length; i++) {
+        for (let j = 0; j < name2.length; j++) {
+            if (name1[i] === name2[j]) {
+                combinedString = combinedString.replace(name1[i], '');
+                combinedString = combinedString.replace(name2[j], '');
+                break;
+            }
+        }
+    }
+
+    const remainder = combinedString.length % flames.length;
+    const result = flames[remainder ? remainder - 1 : flames.length - 1];
+
+    document.getElementById("result").textContent = `The relationship is: ${result}`;
+    document.getElementById("result").style.opacity = 1;
+
+    document.getElementById("name1").disabled = true;
+    document.getElementById("name2").disabled = true;
+    document.getElementById("calculate-btn").style.display = 'none';
+    document.getElementById("reset-btn").style.display = 'inline-block';
+}
+
+function resetFields() {
+    document.getElementById("name1").value = '';
+    document.getElementById("name2").value = '';
+    document.getElementById("name1").disabled = false;
+    document.getElementById("name2").disabled = false;
+    document.getElementById("result").style.opacity = 0;
+
+    document.getElementById("calculate-btn").style.display = 'inline-block';
+    document.getElementById("reset-btn").style.display = 'none';
+}
