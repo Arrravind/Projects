@@ -10,6 +10,9 @@ function calculateFLAMES() {
 
     const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings'];
 
+    const setOne = ['aravind', 'Aravind', 'Aravind M', 'ARAVIND M', 'aravind m'];
+    const setTwo = ['hemapriya', 'Hemapriya', 'Hemapriya RC', 'Hemapriya R C', 'Hemapriya r c', 'hemapriya r c'];
+
     let combinedString = name1 + name2;
 
     for (let i = 0; i < name1.length; i++) {
@@ -23,7 +26,12 @@ function calculateFLAMES() {
     }
 
     const remainder = combinedString.length % flames.length;
-    const result = flames[remainder ? remainder - 1 : flames.length - 1];
+    const result; 
+    if ((name1 in setOne) || (name1 in setTwo)) && ((name1 in setTwo) || (name2 in setOne)) {
+        result = "Love & Marriage";
+    } else {
+        result = flames[remainder ? remainder - 1 : flames.length - 1];
+    }
 
     document.getElementById("result").textContent = `The relationship is: ${result}`;
     document.getElementById("result").style.opacity = 1;
