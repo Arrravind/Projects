@@ -10,31 +10,20 @@ function calculateFLAMES() {
 
     const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings'];
 
-    const setOne = ['aravind', 'Aravind', 'Aravind M', 'ARAVIND M', 'aravind m'];
-    const setTwo = ['hemapriya', 'Hemapriya', 'Hemapriya RC', 'Hemapriya R C', 'Hemapriya r c', 'hemapriya r c'];
-
     let combinedString = name1 + name2;
 
-    let name1Arr = name1.split('');
-    let name2Arr = name2.split('');
-
-    for (let char of name1Arr) {
-        let index = name2Arr.indexOf(char);
-        if (index !== -1) {
-            name2Arr.splice(index, 1);
-            name1Arr.splice(name1Arr.indexOf(char), 1);
+    for (let i = 0; i < name1.length; i++) {
+        for (let j = 0; j < name2.length; j++) {
+            if (name1[i] === name2[j]) {
+                combinedString = combinedString.replace(name1[i], '');
+                combinedString = combinedString.replace(name2[j], '');
+                break;
+            }
         }
     }
 
-    const uniqueLength = name1Arr.length + name2Arr.length;
-    const remainder = uniqueLength % flames.length;
-
-    let result;
-    if ((setOne.includes(name1) && setTwo.includes(name2)) || (setOne.includes(name2) && setTwo.includes(name1))) {
-        result = "Love & Marriage";
-    } else {
-        result = flames[remainder ? remainder - 1 : flames.length - 1];
-    }
+    const remainder = combinedString.length % flames.length;
+    const result = flames[remainder ? remainder - 1 : flames.length - 1];
 
     document.getElementById("result").textContent = `The relationship is: ${result}`;
     document.getElementById("result").style.opacity = 1;
