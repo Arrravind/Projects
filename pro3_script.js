@@ -10,6 +10,21 @@ function calculateFLAMES() {
 
     const flames = ['Friends', 'Love', 'Affection', 'Marriage', 'Enemy', 'Siblings'];
 
+    const setOne = ['aravind', 'aravindm'];
+    const setTwo = ['hemapriya', 'hemapriyarc', 'hemapriyarc'];
+
+    // Normalize input names (remove spaces and convert to lowercase)
+    const normalizedName1 = name1.replace(/\s/g, '');
+    const normalizedName2 = name2.replace(/\s/g, '');
+
+    // Check if names match the predefined sets
+    if ((setOne.includes(normalizedName1) && setTwo.includes(normalizedName2)) ||
+        (setOne.includes(normalizedName2) && setTwo.includes(normalizedName1))) {
+        document.getElementById("result").textContent = "The relationship is: Love and Marriage";
+        document.getElementById("result").style.opacity = 1;
+        return;
+    }
+
     let combinedString = name1 + name2;
 
     for (let i = 0; i < name1.length; i++) {
